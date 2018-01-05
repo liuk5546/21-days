@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/real_light_grey"
+    android:orientation="vertical"
+    tools:context="com.example.twentyone.twenty_one.SearchFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="@color/white"
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/frag_fa_et"
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:hint="请输入搜索的单词"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textSize="14sp"
+            android:background="@color/real_light_grey"/>
+
+        <Button
+            android:id="@+id/frag_search_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="搜索"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:background="@color/white"/>
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="搜索历史:"
+        android:textSize="15sp" />
+
+
+
+</LinearLayout>

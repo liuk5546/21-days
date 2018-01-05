@@ -1,0 +1,24 @@
+{"word_name":"apple",
+	"is_CRI":1,
+	"exchange":
+	{"word_pl":["apples"],
+		"word_past":"",
+		"word_done":"",
+		"word_ing":"",
+		"word_third":"",
+		"word_er":"",
+		"word_est":""},
+		"symbols":[
+			{"ph_en":"\u02c8\u00e6pl",
+				"ph_am":"\u02c8\u00e6p\u0259l",
+				"ph_other":"",
+				"ph_en_mp3":"http:\/\/res.iciba.com\/resource\/amp3\/oxford\/0\/44\/29\/44297283b5e4b5b0a991213897f0b14a.mp3",
+				"ph_am_mp3":"http:\/\/res.iciba.com\/resource\/amp3\/1\/0\/1f\/38\/1f3870be274f6c49b3e31a0c6728957f.mp3",
+				"ph_tts_mp3":"http:\/\/res-tts.iciba.com\/1\/f\/3\/1f3870be274f6c49b3e31a0c6728957f.mp3",
+				"parts":[
+					{"part":"n.",
+					  "means":["\u82f9\u679c","\u82f9\u679c\u6811","\u82f9\u679c\u516c\u53f8"]
+					}]
+			}],
+				"items":[""]
+}
