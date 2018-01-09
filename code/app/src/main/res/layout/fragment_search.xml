@@ -17,13 +17,16 @@
             android:id="@+id/frag_fa_et"
             android:layout_width="280dp"
             android:layout_height="match_parent"
+            android:layout_alignBaseline="@+id/frag_search_tv"
+            android:layout_alignBottom="@+id/frag_search_tv"
+            android:layout_alignParentStart="true"
+            android:background="@color/real_light_grey"
             android:hint="请输入搜索的单词"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:paddingLeft="20dp"
             android:singleLine="true"
-            android:textSize="14sp"
-            android:background="@color/real_light_grey"/>
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/frag_search_tv"

@@ -27,7 +27,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
-    implementation files('/Users/liuk/Desktop/workshop/21-days/code/libs/YoudaoBase.jar')
-    implementation files('/Users/liuk/Desktop/workshop/21-days/code/libs/YoudaoTranslateOffline.jar')
-    implementation files('/Users/liuk/Desktop/workshop/21-days/code/libs/YoudaoTranslateOnline.jar')
+    implementation files('libs/YoudaoBase.jar')
+    implementation files('libs/YoudaoCnDictOffline.jar')
+    implementation files('libs/YoudaoTranslateOffline.jar')
+    implementation files('libs/YoudaoTranslateOnline.jar')
 }

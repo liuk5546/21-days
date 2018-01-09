@@ -1,6 +1,7 @@
 package com.example.twentyone.twenty_one.base;
 
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,6 +33,10 @@ public abstract class BaseFragment extends Fragment {
 
     public Button findButById(View v, int id) {
         return (Button) v.findViewById(id);
+    }
+
+    public RecyclerView findRecyclerByID(View v,int id){
+        return (RecyclerView)v.findViewById(id);
     }
 
     public void showToast(String str) {

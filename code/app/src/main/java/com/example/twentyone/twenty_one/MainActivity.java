@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragments.add(new TuiJianFragment());
+        fragments.add(new ShouChangFragment());
         fragments.add(new SearchFragment());
         fragments.add(new MyFragment());
         initView();
