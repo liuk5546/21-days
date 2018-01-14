@@ -7,6 +7,7 @@ import java.sql.Timestamp;
  */
 
 public class CollectionWord {
+    private int id;
     private String word;
     private String chineseWithPart;
     private int times;
@@ -15,6 +16,11 @@ public class CollectionWord {
     public CollectionWord(SearchResult sr){
         word = sr.getKey();
         chineseWithPart = sr.getAcceptation();
+    }
+
+    public CollectionWord(String word, String chineseWithPart) {
+        this.word = word;
+        this.chineseWithPart = chineseWithPart;
     }
 
     public String getLastReviewDate() {
@@ -45,5 +51,13 @@ public class CollectionWord {
             result = chineseWithPart;
         }
         return result;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

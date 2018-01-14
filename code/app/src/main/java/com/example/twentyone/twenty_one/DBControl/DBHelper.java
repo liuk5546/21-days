@@ -24,7 +24,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     +"(Id integer primary key autoincrement," +
                     "word text unique," +
                     "times integer," +
-                    "last_review_date text)"
+                    "last_review_date text," +
+                    "chineseWithPart text)"
     };
     public DBHelper(Context context) {
         super(context, DB_NAME, null, 1);

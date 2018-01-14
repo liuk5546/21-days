@@ -1,8 +1,10 @@
 package com.example.twentyone.twenty_one.DBControl;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.twentyone.twenty_one.Model.CollectionWord;
 import com.example.twentyone.twenty_one.Model.SearchResult;
 
 import java.sql.Timestamp;
@@ -19,9 +21,26 @@ public class CollectionWordManager {
         values.put("chineseWithPart",searchResult.getAcceptation());
         values.put("times",1);
         values.put("last_review_date",new Timestamp(System.currentTimeMillis()).toString());
-        db.insert(DBHelper.DB_NAME,null,values);
+        db.insert(DBHelper.TABLE_NAMES[1],null,values);
     }
-
+    //通过单词找内容
+    public static CollectionWord findByWord(String Word,SQLiteDatabase db){
+        Cursor cursor = db.rawQuery("select * from collect where word = \'"+ Word+"\'",null);
+        CollectionWord cw;
+        if(cursor.moveToFirst()){
+            cw = new CollectionWord(cursor.getString(cursor.getColumnIndex("word"))
+                    ,cursor.getString(cursor.getColumnIndex("chineseWithPart")));
+            cw.setId(cursor.getInt(cursor.getColumnIndex("Id")));
+            cw.setLastReviewDate(cursor.getString(cursor.getColumnIndex("last_review_date")));
+            cw.setTimes(cursor.getInt(cursor.getColumnIndex("times")));
+        }else{
+            cw = new CollectionWord("error","error");
+            cw.setId(-1);
+        }
+         return cw;
+    }
+    public static void deleteByWord(String Word,SQLiteDatabase db){
+    }
     /**
      *
      * @param reviewWord
