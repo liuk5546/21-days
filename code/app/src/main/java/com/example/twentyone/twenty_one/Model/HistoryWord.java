@@ -1,15 +1,12 @@
 package com.example.twentyone.twenty_one.Model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by liuk on 2018/1/5.
  */
 
 public class HistoryWord {
     private String word;
-    private List<String> chineseWithPart = new ArrayList<String>();
+    private String chineseWithPart;
     //这个叫词性
 
     public String getWord() {
@@ -20,28 +17,17 @@ public class HistoryWord {
         this.word = word;
     }
 
-    public void setChineseWithPart(String chineseWithPart) {
-        this.chineseWithPart.add(chineseWithPart);
-    }
-
-
     public String getChineseWithPart() {
-        String ret = "";
-        if (chineseWithPart.size()>=1){
-            for (String x:chineseWithPart
-                 ) {
-                ret+=x;
-            }
+        String result;
+        if(chineseWithPart.length()>9){
+            result = chineseWithPart.substring(0,6)+"...";
+        }else{
+            result = chineseWithPart;
         }
-        return ret;
+        return result;
     }
 
-    public static void main(String[] args) {
-        HistoryWord test = new HistoryWord();
-        test.setChineseWithPart("1");
-        test.setChineseWithPart("1");
-        test.setChineseWithPart("1");
-        test.setChineseWithPart("1");
-        System.out.print(test.getChineseWithPart());
+    public void setChineseWithPart(String chineseWithPart) {
+        this.chineseWithPart = chineseWithPart;
     }
 }

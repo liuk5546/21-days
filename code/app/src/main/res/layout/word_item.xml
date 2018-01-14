@@ -13,7 +13,8 @@
         android:id="@+id/imageView"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        android:src="@android:drawable/btn_star_big_on"
+        />
 
     <TextView
         android:id="@+id/word_textView"

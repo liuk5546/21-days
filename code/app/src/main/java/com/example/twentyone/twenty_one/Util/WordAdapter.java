@@ -44,7 +44,7 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mHistoryWord.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{

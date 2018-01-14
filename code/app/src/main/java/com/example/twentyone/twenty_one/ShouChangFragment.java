@@ -4,11 +4,13 @@ package com.example.twentyone.twenty_one;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.twentyone.twenty_one.Model.HistoryWord;
 import com.example.twentyone.twenty_one.Util.WordAdapter;
@@ -27,6 +29,7 @@ public class ShouChangFragment extends BaseFragment {
     private Context mcontext;
     private RecyclerView wordRecyclerView;
     private LinearLayoutManager layoutManager;
+    private SwipeRefreshLayout swipeRefreshLayout;
     public ShouChangFragment(){
         mcontext = getContext();
     }
@@ -44,6 +47,7 @@ public class ShouChangFragment extends BaseFragment {
         return v;
     }
 
+
     @Override
     public void initView() {
         initWord();
@@ -52,6 +56,15 @@ public class ShouChangFragment extends BaseFragment {
         wordRecyclerView.setLayoutManager(layoutManager);
         WordAdapter wordAdapter = new WordAdapter(mHistoryWordList);
         wordRecyclerView.setAdapter(wordAdapter);
+        swipeRefreshLayout = v.findViewById(R.id.refreshword);
+        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.blue));
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                Toast.makeText(mcontext,"刷新",Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     /**
