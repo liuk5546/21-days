@@ -17,8 +17,7 @@ public class DBHelper extends SQLiteOpenHelper {
             "create table if not exists "
                     + TABLE_NAMES[0]
                     +"(Id integer primary key autoincrement," +
-                    "word text unique," +
-                    "chineseWithPart text)",
+                    "word text unique",
             "create table if not exists "
                     + TABLE_NAMES[1]
                     +"(Id integer primary key autoincrement," +

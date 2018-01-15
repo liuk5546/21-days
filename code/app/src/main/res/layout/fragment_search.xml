@@ -48,6 +48,8 @@
         android:text="搜索历史:"
         android:textSize="15sp" />
 
+    <include layout="@layout/fragment_shou_chang"/>
+
 
 
 </LinearLayout>

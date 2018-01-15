@@ -32,6 +32,7 @@ public class ShouChangFragment extends BaseFragment {
     private LinearLayoutManager layoutManager;
     private SwipeRefreshLayout swipeRefreshLayout;
     private DBHelper dbHelper;
+
     public ShouChangFragment(){
         mcontext = getContext();
     }
