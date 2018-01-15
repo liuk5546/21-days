@@ -115,14 +115,20 @@ public class MeanActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    uri = Uri.parse("http://res.iciba.com/resource/amp3/0/0/34/d1/34d1f91fb2e514b8576fab1a75a89a6b.mp3");
-                    voicePlayer.setDataSource(MeanActivity.this,uri);
-                    voicePlayer.prepare();
+                    voicePlayer.setDataSource("http://res.iciba.com/resource/amp3/0/0/34/d1/34d1f91fb2e514b8576fab1a75a89a6b.mp3");
+                    voicePlayer.prepareAsync();
                     Toast.makeText(MeanActivity.this,"准备播放",Toast.LENGTH_SHORT);
                 } catch (IOException e) {
                     e.printStackTrace();
                     Log.e(TAG,"音频输入错误");
                 }
+            }
+        });
+        voicePlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.start();
+                Log.d("Voice","播放");
             }
         });
         usVoice = findImageViewById(R.id.act_english_usvoice);
