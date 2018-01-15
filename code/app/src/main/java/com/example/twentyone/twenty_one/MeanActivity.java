@@ -11,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ public class MeanActivity extends BaseActivity {
     private String word; //要查询的单词
     private TextView englishName,ukDuYin,usDuYin,shiYi;//英语单词，英读音，美读音
     private ImageButton backButton;//返回按钮
+    private Button reviewButton;//复习按钮
     private SQLiteOpenHelper dbhelper;
     private CollectionWord cw;
     private SearchResult rs = new SearchResult();
@@ -72,6 +74,8 @@ public class MeanActivity extends BaseActivity {
         ukDuYin = findTextViewById(R.id.act_english_ukduyin);
         usDuYin = findTextViewById(R.id.act_english_usduyin);
         shiYi = findTextViewById(R.id.act_english_shiyi);
+        reviewButton = findButById(R.id.act_review_button);
+
         /**
          * 收藏控制
          * 如果点击图案会改变
@@ -80,6 +84,15 @@ public class MeanActivity extends BaseActivity {
         cw = CollectionWordManager.findByWord(word,dbhelper.getReadableDatabase());
         if (cw.getId()!=-1){
             englishStar.setImageResource(R.drawable.staron);
+            reviewButton.setVisibility(View.VISIBLE);
+            reviewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CollectionWordManager.review(cw,dbhelper.getWritableDatabase());
+                }
+            });
+        }else{
+            reviewButton.setVisibility(View.INVISIBLE);
         }
         englishStar.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -19,4 +19,6 @@
         android:text="单词释意"
         android:textColor="@color/white"/>
 
+
+
 </RelativeLayout>

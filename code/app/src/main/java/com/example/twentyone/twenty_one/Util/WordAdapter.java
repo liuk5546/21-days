@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.twentyone.twenty_one.Model.HistoryWord;
+import com.example.twentyone.twenty_one.Model.CollectionWord;
 import com.example.twentyone.twenty_one.R;
 
 import java.util.List;
@@ -16,10 +16,10 @@ import java.util.List;
  */
 
 public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
-    private List<HistoryWord> mHistoryWord;
+    private List<CollectionWord> mCollectionWordList;
 
-    public WordAdapter(List<HistoryWord> mHistoryWord) {
-        this.mHistoryWord = mHistoryWord;
+    public WordAdapter(List<CollectionWord> mCollectionWordList) {
+        this.mCollectionWordList = mCollectionWordList;
     }
 
     @Override
@@ -31,9 +31,9 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        HistoryWord historyWord = mHistoryWord.get(position);
-        holder.wordTextView.setText(historyWord.getWord());
-        holder.wordMeanTextView.setText(historyWord.getChineseWithPart());
+        CollectionWord collectionWord = mCollectionWordList.get(position);
+        holder.wordTextView.setText(collectionWord.getWord());
+        holder.wordMeanTextView.setText(collectionWord.getChineseWithPart());
         holder.parentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +44,7 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mHistoryWord.size();
+        return mCollectionWordList.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{

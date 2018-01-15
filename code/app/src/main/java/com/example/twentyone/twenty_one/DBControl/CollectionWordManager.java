@@ -8,6 +8,8 @@ import com.example.twentyone.twenty_one.Model.CollectionWord;
 import com.example.twentyone.twenty_one.Model.SearchResult;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by liuk on 2018/1/12.
@@ -39,16 +41,46 @@ public class CollectionWordManager {
         }
          return cw;
     }
+
+    /**
+     * 删除指定单词
+     * @param Word
+     * @param db
+     */
     public static void deleteByWord(String Word,SQLiteDatabase db){
+        db.delete("collect","word = ?",new String[]{Word});
     }
     /**
      *
-     * @param reviewWord
-     * 给出你复习的单词
-     * @param db
-     * 给出数据库
      */
-    public static void review(String reviewWord,SQLiteDatabase db) {
+    public static List<CollectionWord> loadAllCollection(SQLiteDatabase db){
+        List<CollectionWord> collectionWordList = new ArrayList<>();
+        CollectionWord collectionWord;
+        Cursor cursor = db.query("collect",null,null,null,null,null,null);
+        if (cursor.moveToFirst()){
+            do {
+                collectionWord = new CollectionWord(cursor.getString(cursor.getColumnIndex("word"))
+                        ,cursor.getString(cursor.getColumnIndex("chineseWithPart")));
+                collectionWord.setId(cursor.getInt(cursor.getColumnIndex("Id")));
+                collectionWord.setTimes(cursor.getInt(cursor.getColumnIndex("times")));
+                collectionWord.setLastReviewDate(cursor.getString(cursor.getColumnIndex("last_review_date")));
+                collectionWordList.add(collectionWord);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        return  collectionWordList;
+    }
 
+    /**
+     * 需要给一个使用findByWord查找的CollectionWord
+     * db是可写的。
+     * @param cw
+     * @param db
+     */
+    public static void review(CollectionWord cw,SQLiteDatabase db) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("times",cw.getTimes()+1);
+        contentValues.put("last_review_date",new Timestamp(System.currentTimeMillis()).toString());
+        db.update("collect",contentValues,"Id = ?",new String[]{String.valueOf(cw.getId())});
     }
 }

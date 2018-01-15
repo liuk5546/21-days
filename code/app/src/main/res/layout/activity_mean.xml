@@ -102,6 +102,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:orientation="vertical" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@color/colorAccent"
+                android:text="复习"
+                android:id="@+id/act_review_button"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

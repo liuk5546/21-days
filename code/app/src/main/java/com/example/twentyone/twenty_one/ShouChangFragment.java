@@ -10,9 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.twentyone.twenty_one.Model.HistoryWord;
+import com.example.twentyone.twenty_one.DBControl.CollectionWordManager;
+import com.example.twentyone.twenty_one.DBControl.DBHelper;
+import com.example.twentyone.twenty_one.Model.CollectionWord;
 import com.example.twentyone.twenty_one.Util.WordAdapter;
 import com.example.twentyone.twenty_one.base.BaseFragment;
 
@@ -24,12 +25,13 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class ShouChangFragment extends BaseFragment {
-    private List<HistoryWord> mHistoryWordList = new ArrayList<>();
+    private List<CollectionWord> mHistoryWordList = new ArrayList<>();
     private View v;
     private Context mcontext;
     private RecyclerView wordRecyclerView;
     private LinearLayoutManager layoutManager;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private DBHelper dbHelper;
     public ShouChangFragment(){
         mcontext = getContext();
     }
@@ -40,6 +42,7 @@ public class ShouChangFragment extends BaseFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_shou_chang, container, false);
+        dbHelper = new DBHelper(v.getContext());
         initView();
         /**
          * 这里读取数据库里的收藏来重新载入ListView
@@ -62,24 +65,22 @@ public class ShouChangFragment extends BaseFragment {
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(true);
-                Toast.makeText(mcontext,"刷新",Toast.LENGTH_LONG).show();
+                reloadRecycleView();
+//                Toast.makeText(mcontext,"刷新",Toast.LENGTH_LONG).show();
             }
         });
     }
 
     /**
      * 这里是一个接口将数据封装成List传入就可以生成RecycleView。
-     * @param changeList
      */
-    private void reloadRecycleView(List<HistoryWord> changeList){
-        mHistoryWordList = changeList;
+    private void reloadRecycleView(){
+        initWord();
         WordAdapter wordAdapter = new WordAdapter(mHistoryWordList);
         wordRecyclerView.setAdapter(wordAdapter);
+        swipeRefreshLayout.setRefreshing(false);
     }
     private void initWord(){
-        HistoryWord historyWord = new HistoryWord();
-        historyWord.setWord("apple");
-        historyWord.setChineseWithPart("n. 苹果");
-        mHistoryWordList.add(historyWord);
+        mHistoryWordList = CollectionWordManager.loadAllCollection(dbHelper.getReadableDatabase());
     }
 }
