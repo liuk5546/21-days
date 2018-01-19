@@ -20,9 +20,12 @@ public class CollectionWordManager {
     public static void insert(SearchResult searchResult, SQLiteDatabase db){
         ContentValues values = new ContentValues();
         values.put("word",searchResult.getKey());
-        values.put("chineseWithPart",searchResult.getAcceptation());
+        values.put("chineseWithPart",searchResult.getAcceptation().get(0));
         values.put("times",1);
         values.put("last_review_date",new Timestamp(System.currentTimeMillis()).toString());
+        //tiems 是次数
+        //word 是单词
+        //Document_manage 是最近一次复习时间
         db.insert(DBHelper.TABLE_NAMES[1],null,values);
     }
     //通过单词找内容

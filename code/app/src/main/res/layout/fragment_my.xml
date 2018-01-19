@@ -5,9 +5,78 @@
     tools:context="com.example.twentyone.twenty_one.MyFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:background="@drawable/bgg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello my fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp" />
+
+        <Button
+            android:id="@+id/angry_btn_fuxi"
+
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:background="@drawable/buttonshape_eye"
+
+            android:text="单词复习"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="65dp" />
+
+        <Button
+            android:id="@+id/angry_btn_jiyi"
+
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:background="@drawable/hot"
+
+
+            android:text="记忆图表"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="65dp" />
+
+        <Button
+            android:id="@+id/angry_btn_toutou"
+
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:background="@drawable/hot3"
+
+
+            android:text="偷偷记词"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="80sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="serif"
+            android:text="A word a day,keeps gay away!"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:typeface="sans" />
+    </LinearLayout>
 
 </FrameLayout>

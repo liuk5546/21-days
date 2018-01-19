@@ -31,4 +31,9 @@ dependencies {
     implementation files('libs/YoudaoCnDictOffline.jar')
     implementation files('libs/YoudaoTranslateOffline.jar')
     implementation files('libs/YoudaoTranslateOnline.jar')
+    compile 'cn.bmob.android:bmob-sdk:3.5.5'
+    compile 'cn.bmob.android:http-legacy:1.0'
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
+
+
 }

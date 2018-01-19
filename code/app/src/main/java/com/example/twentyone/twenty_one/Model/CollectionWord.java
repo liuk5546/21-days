@@ -15,7 +15,7 @@ public class CollectionWord {
 
     public CollectionWord(SearchResult sr){
         word = sr.getKey();
-        chineseWithPart = sr.getAcceptation();
+        chineseWithPart = sr.getAcceptation().get(0);
     }
 
     public CollectionWord(String word, String chineseWithPart) {

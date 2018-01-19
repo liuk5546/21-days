@@ -16,6 +16,8 @@ import com.example.twentyone.twenty_one.base.BaseActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.Bmob;
+
 public class MainActivity extends BaseActivity implements View.OnClickListener{
     private LinearLayout lin[];
     private ViewPager viewpager;
@@ -29,6 +31,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Bmob.initialize(this, "5f8f1e56e374cdf1edc3aab6bab2cf31");
         fragments.add(new ShouChangFragment());
         fragments.add(new SearchFragment());
         fragments.add(new MyFragment());
@@ -38,6 +41,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             linx.setOnClickListener(this);
         }
     }
+
 
     @Override
     public void initView() {
@@ -137,5 +141,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             return 3;
         }
     }
+
 
 }

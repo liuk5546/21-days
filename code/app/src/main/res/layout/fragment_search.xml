@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/real_light_grey"
+    android:background="@drawable/bgg"
     android:orientation="vertical"
     tools:context="com.example.twentyone.twenty_one.SearchFragment">
 
@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:background="@color/white"
+        android:background="@drawable/bgg"
         android:padding="8dp">
 
         <EditText
@@ -36,17 +36,20 @@
             android:layout_marginRight="10dp"
             android:gravity="center"
             android:text="搜索"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/orange"
             android:textSize="15sp"
             android:background="@color/white"/>
     </RelativeLayout>
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
         android:layout_marginTop="10dp"
         android:text="搜索历史:"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
     <include layout="@layout/fragment_shou_chang"/>
 

@@ -48,6 +48,7 @@ public class SearchFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         v = inflater.inflate(R.layout.fragment_search, container, false);
         dbHelper = new DBHelper(v.getContext());
         initView();
@@ -65,14 +66,19 @@ public class SearchFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 String word = searchEditText.getText().toString();
-                Log.d("Intent",word);
-                Intent intent = new Intent(v.getContext(),MeanActivity.class);
-                intent.putExtra("word",word);
-                if(isTextInRule(word)){
-                    HistoryWordManager.insert(word,dbHelper.getWritableDatabase());
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(v.getContext(),"字符不合法",Toast.LENGTH_SHORT).show();
+                if(word.equals("")) {
+                    //不变应万变
+                }
+                else {
+                    Log.d("Intent", word);
+                    Intent intent = new Intent(v.getContext(), MeanActivity.class);
+                    intent.putExtra("word", word);
+                    if (isTextInRule(word)) {
+                        HistoryWordManager.insert(word, dbHelper.getWritableDatabase());
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(v.getContext(), "字符不合法", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
